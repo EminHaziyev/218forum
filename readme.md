@@ -28,8 +28,9 @@ The project uses the following dependencies:
 - Express-session: Session middleware for managing user sessions
 - Connect-mongodb-session: Session store for MongoDB
   
-##Screenshots
-![Main page](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss1.png)
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss1.png" width="128"/>
 ![Posting](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss.png)
 ![Downloaded post](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/post_66412.png)
 
