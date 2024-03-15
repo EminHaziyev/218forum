@@ -27,6 +27,11 @@ The project uses the following dependencies:
 - Mongoose: MongoDB object modeling for Node.js
 - Express-session: Session middleware for managing user sessions
 - Connect-mongodb-session: Session store for MongoDB
+  
+##Screenshots
+![Main page](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss1.png)
+![Posting](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss.png)
+![Downloaded post](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/post_66412.png)
 
 ## Note
 I didn't create this project to release a new website to use. This is an app created by me to practise backend development. Frontend codes are not mine. If you have feedback, feel free to send me:
