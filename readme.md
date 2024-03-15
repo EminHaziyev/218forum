@@ -30,7 +30,7 @@ The project uses the following dependencies:
   
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss1.png" width="128"/>
+<img src="https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss1.png" width="720"/>
 ![Posting](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss.png)
 ![Downloaded post](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/post_66412.png)
 
