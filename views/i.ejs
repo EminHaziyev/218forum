@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Add the html2canvas library to your HTML -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/7ebeecf2b0.js" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3691485778511414"
+        crossorigin="anonymous"></script>
+    <title>218 forum</title>
+    <!-- <script src="script.js" type="text/javascript"></script> -->
+
+
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+
+            padding: 10px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .post {
+            border: 3px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+
+        }
+
+        .post .author {
+            font-weight: bold;
+            color: #1DA1F2;
+        }
+
+        .post .timestamp {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .post .content {
+            margin-top: 10px;
+        }
+
+        .post .actions {
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #1DA1F2;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .post .actions button:hover {
+            background-color: #0E88C0;
+        }
+
+        .new-post {
+            margin-top: 20px;
+        }
+
+        .new-post textarea {
+            width: 100%;
+            padding: 15px;
+            resize: none;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        .new-post button {
+            background-color: #1DA1F2;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .new-post button:hover {
+            background-color: #0E88C0;
+        }
+
+        .commentss {
+            border: 3px solid #ccc;
+            border-radius: 20px;
+            padding-left: 5px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+        }
+
+        .comment-form {
+            padding-left: 15px
+        }
+
+        .comment-input {
+            width: 150px;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+            font-size: 20px;
+            padding: 5px
+        }
+
+        .comment-input[type="text"] {
+            color: #333;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            padding-left: 5px;
+            background-color: #fff;
+
+        }
+
+
+        .post-image img {
+
+            width: 100%;
+            height: 555px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 15px
+        }
+
+        @keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            margin-bottom: 10px;
+
+
+            animation: beat 1s infinite;
+        }
+
+
+
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1DA1F2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+
+        .custom-file-upload i {
+            margin-right: 5px;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            .post .actions button {
+                font-size: 12px;
+            }
+
+            .new-post textarea {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header style="color: black; font-weight: bolder; color:#0E88C0">
+        218 forum v1.3
+    </header>
+    <script>
+        var username = localStorage.getItem("username");
+        if (!username) {
+            username = prompt("İstifadəçi adınızı daxil edin. * Real adınızı istifadə etməməyə çalışın.");
+            if (username && username != "CrazyFrog") {
+                localStorage.setItem("username", username);
+            } else {
+                location.reload();
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            var form = event.target;
+
+
+            var postId = form.querySelector('[name="postId"]').value;
+            var text = form.querySelector('[name="text"]').value;
+
+
+            form.querySelector('[name="author"]').value = username;
+
+            form.submit();
+        }
+
+
+
+        function addRoundCorners(canvas, borderRadius) {
+          const roundedCanvas = document.createElement("canvas");
+          const ctx = roundedCanvas.getContext("2d");
+    roundedCanvas.width = canvas.width;
+    roundedCanvas.height = canvas.height;
+
+    // Set the background color to black
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(borderRadius, 0);
+    ctx.arcTo(canvas.width, 0, canvas.width, canvas.height, borderRadius);
+    ctx.arcTo(canvas.width, canvas.height, 0, canvas.height, borderRadius);
+    ctx.arcTo(0, canvas.height, 0, 0, borderRadius);
+    ctx.arcTo(0, 0, canvas.width, 0, borderRadius);
+    ctx.closePath();
+    ctx.clip();
+    ctx.drawImage(canvas, 0, 0);
+    ctx.restore();
+
+    return roundedCanvas;
+}
+
+    async function downloadPostAsImage(postId) {
+        const container = document.getElementById(postId);
+        if (!container) {
+            console.error("Post container not found.");
+            return;
+        }
+
+        try {
+            const canvas = await html2canvas(container);
+
+
+            const roundedCanvas = addRoundCorners(canvas, 20); 
+
+            const tempLink = document.createElement("a");
+            tempLink.href = roundedCanvas.toDataURL();
+            tempLink.download = `post_${postId}.png`;
+            tempLink.click();
+        } catch (error) {
+            console.error("Failed to capture post content as canvas:", error);
+        }
+    }
+
+
+
+
+
+    </script>
+
+    <div class="container new-post">
+        <form action="/uploadphoto" enctype="multipart/form-data" method="post" onsubmit="handleSubmit(event)">
+            <div class="file-upload" style="margin-left: 10px">
+                <label for="myImage" class="custom-file-upload">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            svg {
+                                fill: #ffffff
+                            }
+                        </style>
+                        <path
+                            d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
+                    </svg> Şəkil yüklə (istəyə bağlı)
+                </label>
+                <input type="file" name="myImage" id="myImage" accept="image/*">
+            </div>
+            <input type="hidden" name="author" value="">
+            <input type="hidden" name="postId" value="">
+            <img id="imagePreview" src="#" alt="Image Preview"
+                style="display: none; max-width: 300px; margin-bottom: 20px; border-radius: 20px; border: 5px solid #1DA1F2">
+            <textarea placeholder="Post mətnini daxil et" name="text" id="content"></textarea>
+            <button type="submit" class="comment-input">Post</button>
+        </form>
+    </div>
+    <div class="container" id="posts-container">
+        <% posts.forEach(element=> { %>
+            <div class="post" id="<%= element.id %>">
+                <% if(element.username=="CrazyFrog" ){color="#FFD700" } %>
+                    <% if(element.username !="CrazyFrog" ){color="#1DA1F2" } %>
+
+                        <div class="author" style="color: <%= color %>">
+                            <%= element.username %>
+                        </div>
+                        <div class="timestamp">
+                            <%= element.time %>
+                        </div>
+                        <div class="timestamp">Post ID: <%= element.id %>
+                        </div>
+
+                        <div class="post-image">
+                            <% if (element.img && element.img.data && element.img.contentType !=undefined) { %>
+                                <img
+                                    src="data:<%= element.img.contentType %>;base64,<%= element.img.data.toString('base64') %>">
+                                <% } %>
+                        </div>
+
+                        <div class="content">
+                            <%= element.content %>
+                        </div>
+                        <br>
+                        <div class="commentss">
+                            <div class="comments" style="margin-left: 15px; font-weight: bold;color: #1DA1F2;">Rəylər
+                            </div>
+                            <% element.comments.forEach(comment=> { %>
+                                <div class="author" style="padding-left:25px">
+                                    <%= comment.author %>: <span style="color: #6e6e6e">
+                                            <%= comment.text %>
+                                        </span>
+                                </div>
+
+
+                                <% }); %>
+                                    <form class="comment-form" action="/comment" method="post"
+                                        onsubmit="handleSubmit(event)">
+                                        <input type="hidden" name="postId" value="<%= element.id %>">
+                                        <input type="hidden" name="author" value="">
+                                        <input type="text" name="text" class="comment-input" placeholder="Rəyiniz"
+                                            required></input>
+                                        <button type="submit" style="height:35px" class="button">Rəyi göndər</button>
+                                    </form>
+                        </div>
+
+                        <div class="actions">
+                            <form action="/like" method="post">
+                                <input type="hidden" name="postid" value="<%= element.id %>">
+                                <button class="button" type="submit">Like <%= element.likes %></button>
+                            </form>
+                            <button class="button">Cavabla</button>
+                            <button class="button" onclick="downloadPostAsImage('<%= element.id %>')">Postu şəkil olaraq yüklə</button>
+
+                        </div>
+            </div>
+
+            <% }); %>
+
+
+                <!-- Add more posts here -->
+    </div>
+
+    <script>
+        function handleImagePreview(event) {
+            const fileInput = event.target;
+            const file = fileInput.files[0];
+
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const imagePreview = document.getElementById("imagePreview");
+                    imagePreview.src = event.target.result;
+                    imagePreview.style.display = "block";
+                };
+
+                reader.readAsDataURL(file);
+                document.getElementsByClassName('custom-file-upload')[0].style.visibility = "hidden"
+            } else {
+                const imagePreview = document.getElementById("imagePreview");
+                imagePreview.src = "#";
+                imagePreview.style.display = "none";
+            }
+        }
+
+        document.getElementById("myImage").addEventListener("change", handleImagePreview);
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
