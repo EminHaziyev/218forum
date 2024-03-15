@@ -31,8 +31,9 @@ The project uses the following dependencies:
 ## Screenshots
 
 <img src="https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss1.png" width="720"/>
-![Posting](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss.png)
-![Downloaded post](https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/post_66412.png)
+<img src="https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/ss.png" width="720"/>
+<img src="https://raw.githubusercontent.com/EminHaziyev/218forum/main/screenshots/post_66412.png" width="720"/>
+
 
 ## Note
 I didn't create this project to release a new website to use. This is an app created by me to practise backend development. Frontend codes are not mine. If you have feedback, feel free to send me:
